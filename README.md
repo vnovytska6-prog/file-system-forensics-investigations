@@ -14,13 +14,13 @@ I used forensic tools and manual analysis to examine file system structures, ide
 
 ### FAT32 File System and Metadata
 
-![FAT32 file system metadata](screenshots/fat32-metadata-analysis.png)
+![FAT32 file system metadata](fat32-metadata-analysis.png)
 
 ### Deleted File Investigation
 
 The analysis identified `deleted_notes.txt` as an unallocated file whose directory entry and cluster information could still be examined.
 
-![FAT32 deleted file investigation](screenshots/fat32-deleted-file.png)
+![FAT32 deleted file investigation](fat32-deleted-file.png)
 
 ## NTFS Investigation
 
@@ -36,29 +36,29 @@ The analysis identified `deleted_notes.txt` as an unallocated file whose directo
 
 I used `fsstat` to identify the sector and cluster sizes, the locations of `$MFT` and `$MFTMirr`, and the attribute types supported by the NTFS image.
 
-![NTFS file system structure](screenshots/ntfs-filesystem-structure.png)
+![NTFS file system structure](ntfs-filesystem-structure.png)
 
 ### NTFS System Files
 
 Using `fls`, I identified important NTFS system files, including `$MFT`, `$MFTMirr`, `$LogFile`, `$Bitmap` and `$Secure`, together with user files stored in the forensic image.
 
-![NTFS system files](screenshots/ntfs-system-files.png)
+![NTFS system files](ntfs-system-files.png)
 
 ### NTFS MFT Analysis
 
-![NTFS MFT metadata analysis](screenshots/ntfs-mft-analysis.png)
+![NTFS MFT metadata analysis](ntfs-mft-analysis.png)
 
 ### MFT Mirror Analysis
 
 I examined `$MFTMirr` to understand how NTFS keeps backup copies of important MFT entries.
 
-![NTFS MFT mirror analysis](screenshots/ntfs-mft-mirror.png)
+![NTFS MFT mirror analysis](ntfs-mft-mirror.png)
 
 ### Manual Hex Analysis
 
 The MFT entry contained the `FILE` signature and the expected `$STANDARD_INFORMATION`, `$FILE_NAME` and `$DATA` attributes.
 
-![Manual NTFS MFT hex analysis](screenshots/ntfs-hex-analysis.png)
+![Manual NTFS MFT hex analysis](ntfs-hex-analysis.png)
 
 ## Tools and Techniques
 
